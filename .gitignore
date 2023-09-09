@@ -1,0 +1,22 @@
+# Compiled output
+/dist
+/out
+/build
+/coverage
+
+# Dependency directories
+/node_modules
+
+# Environment variables
+.env
+
+# IDE files
+.vscode
+.idea
+
+# TypeScript cache
+*.tsbuildinfo
+
+# Debug files
+*.log
+*.debug.*
