@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-undef
 module.exports = {
     rootDir: './',
     testEnvironment: 'node',
@@ -34,12 +35,12 @@ module.exports = {
         }
     },
     coveragePathIgnorePatterns: [
-        './node_modules/',
+        '../../node_modules/',
     ],
     testPathIgnorePatterns: [
-        './node_modules/',
+        '../../node_modules/',
     ],
     modulePathIgnorePatterns: [
-        './node_modules/',
+        '../../node_modules/',
     ]
 };

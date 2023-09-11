@@ -20,7 +20,7 @@ jobs:
       run: npm ci
 
     - name: Publish
-      run: npm publish
+      run: cd packages/async-promise-batch && npm publish
 
       env:
         # We need this to our NPM account

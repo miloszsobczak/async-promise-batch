@@ -1,0 +1,33 @@
+{
+  "name": "async-promise-batch-demo",
+  "version": "1.0.0",
+  "description": "Demo for async-promise-batch",
+  "main": "index.js",
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "scripts": {
+    "start:dev": "parcel src/index.html --open",
+    "build": "parcel build src/index.html --target default --public-url ."
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "async-promise-batch": "*",
+    "parcel": "^2.9.3",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "@parcel/resolver-default": "^2.9.3"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.21",
+    "@types/react-dom": "^18.2.7"
+  },
+  "app": "dist/index.html",
+  "targets": {
+    "default": {
+      "distDir": "dist"
+    }
+  }
+}

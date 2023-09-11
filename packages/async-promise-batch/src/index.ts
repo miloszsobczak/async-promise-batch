@@ -28,34 +28,39 @@ function range<T>(promises: Array<() => Promise<T>>, limit: number): AsyncIterab
         }
     };
 
+    const pendings: Map<symbol, Promise<{
+        key: symbol;
+        value: T;
+    }>> = new Map();
+
     return {
         [Symbol.asyncIterator]() {
             return this;
         },
         async next() {
-            const pendings: Array<Promise<{
-                key: symbol;
-                value: T;
-            }>> = [];
             // custom iterator outputs only pending promises
             for (const [key, {
                 promiseFn,
             }] of queue) {
-                if (pendings.length < limit) {
-                    pendings.push(promiseFn().then(value => ({ key, value })));
+                if (pendings.size < limit && !pendings.has(key)) {
+                    pendings.set(key, promiseFn().then(value => {
+                        pendings.delete(key);
+                        return { key, value };
+                    }));
                 }
             }
 
-            if (!pendings.length) {
+            if (!pendings.size) {
                 return {
                     done: true,
                     value: Array.from(queue.values()).map(({ value }) => value)
                 };
             }
 
-            const res = await Promise.race(pendings).then(({ key, value }) => {
+            const res = await Promise.race(pendings.values()).then(({ key, value }) => {
                 const item = queue.get(key);
-                if(!item) {
+
+                if (!item) {
                     return value;
                 }
 

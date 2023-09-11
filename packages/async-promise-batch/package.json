@@ -1,0 +1,41 @@
+{
+  "name": "async-promise-batch",
+  "version": "1.0.1",
+  "description": "A utility for batching and controlling the concurrency of promises, providing efficient asynchronous processing.",
+  "main": "./dist/cjs/index.js",
+  "module": "./dist/esm/index.js",
+  "types": "./dist/esm/index.d.ts",
+  "files": [
+    "dist",
+    "LICENSE",
+    "README.md"
+  ],
+  "scripts": {
+    "test": "jest",
+    "test:watch": "jest --watchAll",
+    "lint": "eslint ./src",
+    "start:dev": "tsc --watch --preserveWatchOutput",
+    "prettier": "prettier 'src/**/*.ts'",
+    "prettier:fix": "prettier --write 'src/**/*.ts'",
+    "build": "yarn build:esm && yarn build:cjs",
+    "build:esm": "tsc",
+    "build:cjs": "tsc --module commonjs --outDir dist/cjs",
+    "prepare": "npm run build",
+    "prepublishOnly": "npm test && npm run prettier && npm run lint"
+  },
+  "keywords": [
+    "promise",
+    "queue",
+    "async",
+    "concurrency"
+  ],
+  "author": "Milosz Sobczak <kontakt@miloszsobczak.pl>",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18.17.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/miloszsobczak/async-promise-batch.git"
+  }
+}

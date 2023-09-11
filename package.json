@@ -1,55 +1,40 @@
 {
-    "name": "async-promise-batch",
+    "name": "async-promise-batch-mono-repo",
     "version": "1.0.0",
-    "description": "A utility for batching and controlling the concurrency of promises, providing efficient asynchronous processing.",
-    "main": "./dist/cjs/index.js",
-    "module": "./dist/esm/index.js",
-    "types": "./dist/esm/index.d.ts",
-    "files": [
-        "dist",
-        "LICENSE",
-        "README.md"
-    ],
-    "scripts": {
-        "test": "jest",
-        "test:watch": "jest --watchAll",
-        "lint": "eslint ./src",
-        "start:dev": "tsc --watch --preserveWatchOutput",
-        "prettier": "prettier 'src/**/*.ts'",
-        "prettier:fix": "prettier --write 'src/**/*.ts'",
-        "build": "yarn build:esm && yarn build:cjs",
-        "build:esm": "tsc",
-        "build:cjs": "tsc --module commonjs --outDir dist/cjs",
-        "prepare": "npm run build",
-        "prepublishOnly": "npm test && npm run prettier && npm run lint"
-    },
-    "keywords": [
-        "promise",
-        "queue",
-        "async",
-        "concurrency"
-    ],
+    "description": "A monorepo for async-promise-batch and demo",
     "author": "Milosz Sobczak <kontakt@miloszsobczak.pl>",
     "license": "MIT",
     "devDependencies": {
         "@types/jest": "^29.5.4",
         "@typescript-eslint/eslint-plugin": "^6.5.0",
         "@typescript-eslint/parser": "^6.5.0",
+        "concurrently": "^8.2.1",
         "eslint": "^8.48.0",
         "jest": "^29.6.4",
         "prettier": "3.0.3",
         "prettier-plugin-sort-imports": "^1.7.2",
+        "process": "^0.11.10",
         "ts-jest": "^29.1.1",
         "typescript": "^5.2.2"
     },
-    "dependencies": {
-        "debug": "^2.6.3"
+    "scripts": {
+        "start:dev": "concurrently \"npm run start:dev --workspace=\"async-promise-batch\" --if-present\" \"npm run start:dev --workspace=\"async-promise-batch-demo\" --if-present\"",
+        "build": "npm run build --workspaces --if-present",
+        "test": "npm run test --workspaces --if-present",
+        "lint": "npm run lint --workspaces --if-present",
+        "prettier": "npm run prettier --workspaces --if-present",
+        "prettier:fix": "npm run prettier:fix --workspaces --if-present",
+        "prepare": "npm run build",
+        "prepublishOnly": "npm test && npm run prettier && npm run lint"
     },
     "engines": {
         "node": ">=18.17.1"
     },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/miloszsobczak/async-promise-batch.git"
+    "workspaces": [
+        "packages/async-promise-batch",
+        "packages/demo"
+    ],
+    "dependencies": {
+        "debug": "^2.6.3"
     }
 }

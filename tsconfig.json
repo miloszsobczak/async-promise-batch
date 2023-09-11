@@ -1,20 +1,10 @@
-// Cannot find name 'Set'. Do you need to change your target library? Try changing the 'lib' compiler option to 'es2015' or later.
-
 {
-
-  "include": ["src"],
-  "exclude": [
-    "dist",
-    "node_modules"
-  ],
   "compilerOptions": {
     "target": "es2018",
     "lib": ["es2018", "dom"],
     "module": "commonjs",
     "declaration": true,
     "sourceMap": true,
-    "rootDir": "./src",
-    "outDir": "./dist/esm",
     "strict": true,
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,

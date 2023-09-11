@@ -3,6 +3,7 @@
 /out
 /build
 /coverage
+.parcel-cache
 
 # Dependency directories
 /node_modules
