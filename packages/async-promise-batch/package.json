@@ -1,6 +1,6 @@
 {
   "name": "async-promise-batch",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "A utility for batching and controlling the concurrency of promises, providing efficient asynchronous processing.",
   "main": "./dist/cjs/index.js",
   "module": "./dist/esm/index.js",

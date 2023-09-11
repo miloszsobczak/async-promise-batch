@@ -26,6 +26,5 @@ jobs:
         cp ../../README.md .
         cp ../../LICENSE .
         npm publish
-        |
       env:
         NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
