@@ -3,6 +3,8 @@
 [![npm version](https://img.shields.io/npm/v/async-promise-batch.svg)](https://www.npmjs.com/package/async-promise-batch)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/yourusername/async-promise-batch/blob/main/LICENSE)
 
+[__Checkout DEMO__](https://miloszsobczak.github.io/async-promise-batch/)
+
 Async Promise Batch is a powerful utility for managing and controlling the concurrency of promises in your JavaScript or TypeScript projects. It allows you to efficiently process asynchronous tasks in batches, making it ideal for scenarios where you want to limit the number of concurrently executing promises.
 
 ## Installation
